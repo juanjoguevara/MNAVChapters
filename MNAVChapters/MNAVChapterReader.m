@@ -195,18 +195,19 @@ long btoi(char* bytes, long size, long offset);
     
     NSData *startTimeData = SUBDATA(data, index, ID3HeaderSize);
     NSData *endTimeData = SUBDATA(data, index += ID3HeaderSize, ID3HeaderSize);
-    NSData *startOffsetData = SUBDATA(data, index += ID3HeaderSize, ID3HeaderSize);
-    NSData *endOffsetData = SUBDATA(data, index += ID3HeaderSize, ID3HeaderSize);
+  //  NSData *startOffsetData = SUBDATA(data, index += ID3HeaderSize, ID3HeaderSize);
+  //  NSData *endOffsetData = SUBDATA(data, index += ID3HeaderSize, ID3HeaderSize);
     
     NSInteger startTime = btoi((char *)startTimeData.bytes, startTimeData.length, 0);
     NSInteger endTime = btoi((char *)endTimeData.bytes, endTimeData.length, 0);
     
-    BOOL hasStartOffset = is_set((char *)startOffsetData.bytes, startOffsetData.length);
-    assert(!hasStartOffset);
+  //  BOOL hasStartOffset = is_set((char *)startOffsetData.bytes, startOffsetData.length);
+    //assert(!hasStartOffset);
+    
     // NSUInteger startOffset = btoi((char *)startOffsetData.bytes, startOffsetData.length, 0);
     
-    BOOL hasEndOffset = is_set((char *)endOffsetData.bytes, endOffsetData.length);
-    assert(!hasEndOffset);
+  //  BOOL hasEndOffset = is_set((char *)endOffsetData.bytes, endOffsetData.length);
+   // assert(!hasEndOffset);
     // NSUInteger endOffset = btoi((char *)endOffsetData.bytes, endOffsetData.length, 0);
     
     MNAVChapter *chapter = [MNAVChapter new];
